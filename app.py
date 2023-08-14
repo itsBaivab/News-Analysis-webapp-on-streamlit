@@ -138,7 +138,7 @@ def classify_uploaded_text(text):
 
 # Streamlit UI
 def main():
-    st.title("News Classifire")
+    st.title("News Classifier")
     st.write("Upload a .txt or .pdf file for classification")
 
     uploaded_file = st.file_uploader("Choose a file", type=["txt", "pdf"])

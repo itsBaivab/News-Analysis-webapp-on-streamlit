@@ -5,7 +5,7 @@ If you make use of the dataset, please consider citing the publication:
 - D. Greene and P. Cunningham. "Practical Solutions to the Problem of Diagonal Dominance in Kernel Document Clustering", Proc. ICML 2006.
 
 All rights, including copyright, in the content of the original articles are owned by the BBC.
-
+i know
 Contact Derek Greene <derek.greene@ucd.ie> for further information.
 http://mlg.ucd.ie/datasets/bbc.html
 

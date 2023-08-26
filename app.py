@@ -138,6 +138,18 @@ def classify_uploaded_text(text):
 
 # Streamlit UI
 def main():
+       # Add custom CSS styling
+    st.markdown("""
+        <style>
+        .reportview-container {
+            background-color: #e5e5f7;
+            opacity: 0.8;
+            background-image: radial-gradient(circle at center center, #000000, #e5e5f7),
+                              repeating-radial-gradient(circle at center center, #000000, #000000, 10px, transparent 20px, transparent 10px);
+            background-blend-mode: multiply;
+        }
+        </style>
+    """, unsafe_allow_html=True)
     st.title("News Classifier")
     st.write("Upload a .txt or .pdf file for classification")
 

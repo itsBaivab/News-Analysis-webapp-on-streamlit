@@ -1,13 +1,14 @@
+from collections import defaultdict
 import streamlit as st
 import os
-import string
-from collections import defaultdict
+
+
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 import random
 import pickle
 from sklearn import metrics
-import fitz  # PyMuPDF for PDF text extraction
+
 
 # Define your constants
 BASE_DIR = r'D:\Doc classifier\bbc'
@@ -137,6 +138,7 @@ def classify_uploaded_text(text):
     return pred[0]
 
 # Streamlit UI
+<<<<<<< HEAD
 def main():
        # Add custom CSS styling
     st.markdown("""
@@ -152,23 +154,28 @@ def main():
     """, unsafe_allow_html=True)
     st.title("News Classifier")
     st.write("Upload a .txt or .pdf file for classification")
+=======
+>>>>>>> refs/remotes/origin/main
 
-    uploaded_file = st.file_uploader("Choose a file", type=["txt", "pdf"])
+st.title("News Classifier")
+st.write("Upload a .txt file or enter text for classification")
 
-    if uploaded_file is not None:
-        if uploaded_file.type == "text/plain":
-            text = uploaded_file.read().decode("utf-8")
-        elif uploaded_file.type == "application/pdf":
-            pdf_reader = fitz.open(stream=uploaded_file.read(), filetype="pdf")
-            text = ""
-            for page in pdf_reader:
-                text += page.get_text()
+# Add a file uploader for .txt files
+uploaded_file = st.file_uploader("Choose a .txt file", type=["txt"])
 
+# Add a text input field for user input
+user_input = st.text_area("Enter text here:", "")
+
+# Check if a .txt file has been uploaded
+if uploaded_file is not None:
+    if uploaded_file.type == "text/plain":
+        text = uploaded_file.read().decode("utf-8")
         st.write("Uploaded text:")
         st.write(text)
-
         prediction = classify_uploaded_text(text)
         st.success("Prediction: {}".format(prediction))
 
-if __name__ == "__main__":
-    main()
+# Check if the user has entered text
+if user_input:
+    prediction = classify(user_input)
+    st.success("Prediction: {}".format(prediction))
